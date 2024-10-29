@@ -315,7 +315,6 @@ def run_drag(source_image,
     if mask_fill is None:
         pass
     else:
-        print(f"mask fill 1: {mask_fill.shape}")
         mask_fill = torch.from_numpy(mask_fill).float() / 255.
         mask_fill[mask_fill > 0.0] = 1.0
         mask_fill = rearrange(mask_fill, "h w -> 1 1 h w").cuda()
@@ -354,7 +353,7 @@ def run_drag(source_image,
     use_onestep_latent_copy = 1     # copy in one step, only in last latent
     use_substep_latent_copy = 0  
 
-    if task_cat == "object moving":
+    if task_cat == "object moving" or task_cat == "object copy":
         tex = f"_om"
         print("the task is object moving")
         use_lora = 0
@@ -429,7 +428,8 @@ def run_drag(source_image,
         # print("******use copy paste*******")
         invert_code_d = copy.deepcopy(invert_code)
         invert_code = copy_past(invert_code,mask_cp_target,shift_yx)
-        invert_code = paint_past(invert_code,invert_code_d,mask_cp_handle,mask_cp_target,target_points[0]/4,mask_fill=mask_fill)
+        if task_cat == "object moving":
+            invert_code = paint_past(invert_code,invert_code_d,mask_cp_handle,mask_cp_target,target_points[0]/4,mask_fill=mask_fill)
 
     if use_drag_stretch:
         # print("******use drag stretch*******")
