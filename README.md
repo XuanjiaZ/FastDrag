@@ -55,7 +55,7 @@ python drag_ui.py
 
 
 ## License
-Code related to the DragDiffusion algorithm is under Apache 2.0 license.
+Code related to the FastDrag algorithm is under Apache 2.0 license.
 
 
 ## BibTeX
