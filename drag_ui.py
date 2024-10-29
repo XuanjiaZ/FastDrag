@@ -120,7 +120,7 @@ with gr.Blocks() as demo:
 
 
     # object moving
-    with gr.Tab(label="Object Moving"):
+    with gr.Tab(label="Object Moving/Copy"):
         mask_om = gr.State(value=None) # store mask
         mask_fill = gr.State(value=None) # fill mask
         selected_points_om = gr.State([]) # store points
@@ -159,6 +159,7 @@ with gr.Blocks() as demo:
             task_cat_om = gr.Dropdown(value="object moving",
                 label="task",
                 choices=["object moving",
+                         "object copy"
                         ]
             )
             fill_mode_om = gr.Dropdown(value="interpolation",
