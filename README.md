@@ -18,6 +18,11 @@
     <a href="https://scholar.google.com/citations?hl=en&user=O51mMKgAAAAJ"><strong>Pengming Feng</strong></a>
   </p>
   <br>
+  <p align="center">
+    <a href="https://arxiv.org/abs/2405.15769"><img alt='arXiv' src="https://img.shields.io/badge/arXiv-2405.15769-red"></a>
+    <a href="https://fastdrag-site.github.io/"><img alt='page' src="https://img.shields.io/badge/Project-Website-orange"></a>
+    <!-- <a href=""><img alt='Twitter' src="https://img.shields.io/badge/Nips-poster-blue"></a> -->
+  </p>
   <div align="center">
     <img src="./release-doc/asset/overall-method-structure_v12.png", width="700">
   </div>
@@ -29,11 +34,6 @@
         <source src="https://fastdrag-site.github.io/program.mp4" type="video/mp4" />
     </video>
   </div> -->
-  <p align="center">
-    <a href="https://arxiv.org/abs/2405.15769"><img alt='arXiv' src="https://img.shields.io/badge/arXiv-2405.15769-red"></a>
-    <a href="https://fastdrag-site.github.io/"><img alt='page' src="https://img.shields.io/badge/Project-Website-orange"></a>
-    <!-- <a href=""><img alt='Twitter' src="https://img.shields.io/badge/Nips-poster-blue"></a> -->
-  </p>
   <br>
 </p>
 
