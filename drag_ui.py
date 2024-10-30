@@ -20,6 +20,7 @@ from utils.ui_utils import clear_all, store_img, store_img_om, train_lora_interf
 
 LENGTH=480 # length of the square area displaying/editing images
 LENGTH_OM = 720
+local_models_dir = "./local_pretrained_models"
 
 with gr.Blocks() as demo:
     # layout definition
@@ -91,7 +92,7 @@ with gr.Blocks() as demo:
                 start_step = gr.Number(value=0, label="start_step", precision=0, visible=False)
                 start_layer = gr.Number(value=10, label="start_layer", precision=0, visible=False)
                 
-                local_models_dir = './local_pretrained_models'
+                local_models_dir = local_models_dir
                 local_models_choice = \
                     [os.path.join(local_models_dir,d) for d in os.listdir(local_models_dir) if os.path.isdir(os.path.join(local_models_dir,d))]
                 model_path = gr.Dropdown(value="runwayml/stable-diffusion-v1-5",
@@ -101,6 +102,12 @@ with gr.Blocks() as demo:
                         "gsdf/Counterfeit-V2.5",
                         "stablediffusionapi/anything-v5",
                         "SG161222/Realistic_Vision_V2.0",
+                    ] + local_models_choice
+                )
+                lcm_model_path = gr.Dropdown(value="SimianLuo/LCM_Dreamshaper_v7",
+                    label="LCM Model Path",
+                    choices=[
+                        "SimianLuo/LCM_Dreamshaper_v7",
                     ] + local_models_choice
                 )
                 vae_path = gr.Dropdown(value="default",
@@ -120,7 +127,7 @@ with gr.Blocks() as demo:
 
 
     # object moving
-    with gr.Tab(label="Object Moving/Copy"):
+    with gr.Tab(label="Object Moving"):
         mask_om = gr.State(value=None) # store mask
         mask_fill = gr.State(value=None) # fill mask
         selected_points_om = gr.State([]) # store points
@@ -191,7 +198,7 @@ with gr.Blocks() as demo:
                 start_step_om = gr.Number(value=0, label="start_step_om", precision=0, visible=False)
                 start_layer_om = gr.Number(value=10, label="start_layer_om", precision=0, visible=False)
 
-                local_models_dir_om = './local_pretrained_models'
+                local_models_dir_om = local_models_dir
                 local_models_choice = \
                     [os.path.join(local_models_dir_om,d) for d in os.listdir(local_models_dir_om) if os.path.isdir(os.path.join(local_models_dir_om,d))]
                 model_path_om = gr.Dropdown(value="runwayml/stable-diffusion-v1-5",
@@ -201,6 +208,12 @@ with gr.Blocks() as demo:
                         "gsdf/Counterfeit-V2.5",
                         "stablediffusionapi/anything-v5",
                         "SG161222/Realistic_Vision_V2.0",
+                    ] + local_models_choice
+                )
+                lcm_model_path_om = gr.Dropdown(value="SimianLuo/LCM_Dreamshaper_v7",
+                    label="LCM Model Path",
+                    choices=[
+                        "SimianLuo/LCM_Dreamshaper_v7",
                     ] + local_models_choice
                 )
                 vae_path_om = gr.Dropdown(value="default",
@@ -265,6 +278,7 @@ with gr.Blocks() as demo:
         fill_mode,
         use_kv_cp,
         use_lora_,
+        lcm_model_path,
         ],
         [output_image]
     )
@@ -336,6 +350,7 @@ with gr.Blocks() as demo:
         fill_mode_om,
         use_kv_cp_om,
         use_lora__om,
+        lcm_model_path_om,
         mask_fill,
         ],
         [output_image_om]
