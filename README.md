@@ -93,4 +93,4 @@ If you find our repo helpful, please consider leaving a star or cite our paper :
 The code is built based on DragDiffusion and diffusers, Thanks for their outstanding work!
 
 ## Notice
-For the fisrt time to run, it may slow, but then it will be normal.
+For the fisrt time to run, it may be slow, but it will perform normally afterwards.
