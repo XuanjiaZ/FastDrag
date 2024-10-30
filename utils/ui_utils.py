@@ -229,6 +229,7 @@ def run_drag(source_image,
              fill_mode,
              use_kv_cp="default",
              use_lora_ = "default",
+             lcm_model_path = "SimianLuo/LCM_Dreamshaper_v7",
              mask_fill = None,
              testif=0,
              save_dir="./results",
@@ -249,7 +250,7 @@ def run_drag(source_image,
     if use_lcm_unet:
         # print('use lcm unet')
         unet = UNet2DConditionModel.from_pretrained(
-                    "SimianLuo/LCM_Dreamshaper_v7",
+                    lcm_model_path,
                     subfolder="unet",
                     torch_dtype=torch.float16,)
         model.unet = unet
@@ -315,6 +316,7 @@ def run_drag(source_image,
     if mask_fill is None:
         pass
     else:
+        print(f"mask fill 1: {mask_fill.shape}")
         mask_fill = torch.from_numpy(mask_fill).float() / 255.
         mask_fill[mask_fill > 0.0] = 1.0
         mask_fill = rearrange(mask_fill, "h w -> 1 1 h w").cuda()
