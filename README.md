@@ -47,10 +47,21 @@ conda env create -f environment.yaml
 conda activate fastdrag
 ```
 
+## Config
+if you want download huggingface weights in local, you should download *runwayml/stable-diffusion-v1-5* and *SimianLuo/LCM_Dreamshaper_v7* (*runwayml/stable-diffusion-v1-5* might not exist in huggingface, but can be found in other websites like [gitee](https://ai.gitee.com/hf-models/runwayml/stable-diffusion-v1-5/tree/main)). 
+
+Then you should set path in config as below:
+![config](./release-doc/asset/config.png)
+
+
 ## Run Fastdrag
 To start with, in command line, run the following to start the gradio user interface:
 ```
 python drag_ui.py
+```
+For users struggling in loading models from huggingface due to internet constraint, please run
+```
+sh run_drag.sh
 ```
 
 
@@ -74,8 +85,8 @@ If you find our repo helpful, please consider leaving a star or cite our paper :
 
 
 
-## 🔧Common Issues and Solutions
-1) For users struggling in loading models from huggingface due to internet constraint, please 1) follow this [links](https://zhuanlan.zhihu.com/p/475260268) and download the model into the directory "local\_pretrained\_models"; 2) Run "drag\_ui.py" and select the directory to your pretrained model in "Algorithm Parameters -> Base Model Config -> Diffusion Model Path".
+<!-- ## 🔧Common Issues and Solutions
+1) For users struggling in loading models from huggingface due to internet constraint, please 1) follow this [links](https://zhuanlan.zhihu.com/p/475260268) and download the model into the directory "local\_pretrained\_models"; 2) Run "drag\_ui.py" and select the directory to your pretrained model in "Algorithm Parameters -> Base Model Config -> Diffusion Model Path". -->
 
 
 ## Acknowledgement
