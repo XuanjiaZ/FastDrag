@@ -48,9 +48,9 @@ conda activate fastdrag
 ```
 
 ## Config
-if you want download huggingface weights in local, you should download *runwayml/stable-diffusion-v1-5* and *SimianLuo/LCM_Dreamshaper_v7* (*runwayml/stable-diffusion-v1-5* might not exist in huggingface, but can be found in other websites like [gitee](https://ai.gitee.com/hf-models/runwayml/stable-diffusion-v1-5/tree/main)). 
+if you want download huggingface weights in local, you should download *runwayml/stable-diffusion-v1-5* and *SimianLuo/LCM_Dreamshaper_v7* ( ```Suggestion 1```: It is suggested that download the model into the directory "local\_pretrained\_models"; ```Suggestion 2```: *runwayml/stable-diffusion-v1-5* might not exist in huggingface, but can be found in other websites like [gitee](https://ai.gitee.com/hf-models/runwayml/stable-diffusion-v1-5/tree/main) ). 
 
-Then you should set path in config as below:
+Then you can set path in config as below:
 ![config](./release-doc/asset/config.png)
 
 
