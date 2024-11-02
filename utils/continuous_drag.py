@@ -102,15 +102,14 @@ def get_circle(mask: torch.Tensor):
 def get_scale_factor(C, A, OA, d_OA, R, O):
     '''
     xA, yA = A  xB, yB = B  xC, yC = C
-    尝试是否可以同时作用于所有点
     '''
     # print("\n=============================")
     AC =  C-A  
     d_AC = torch.norm(AC)
     e_AC = AC/d_AC
     # print(f"O:{O}   \nA:{A} \nC:{C}  \nAC:{AC} \nd_AC:{d_AC} \ne_AC:{e_AC}  \nOA:{OA} \ntorch.dot(AC, OA):{torch.dot(AC, OA)}")
-    L0 = torch.dot(AC, OA) / d_AC             #  |GA|    θ>90，L0<0
-    L1 = torch.sqrt(R**2 - d_OA**2 + L0**2)   #  |GP|
+    L0 = torch.dot(AC, OA) / d_AC             #  |G1 A|    θ>90，L0<0
+    L1 = torch.sqrt(R**2 - d_OA**2 + L0**2)   #  |G1 P|
     AP = (L1-L0)*e_AC  # GP-GA GP = L*t_AC GA = L0*t_AC
     PC = AC-AP
     # print(f"L0:{L0} \nL1:{L1}  \nAP:{AP} \nPC:{PC}")
@@ -123,7 +122,6 @@ def transform_point(point, shift_yx, scale_factor):
     return point_new
 
 
-# 多对点drag，插值
 def drag_stretch_multipoint_ratio_interp(invert_code,handle_points,target_points,mask_cp_handle,shift_yx=None,fill_mode='interpolation'):
     invert_code_d = copy.deepcopy(invert_code)
     if fill_mode == 'ori':
