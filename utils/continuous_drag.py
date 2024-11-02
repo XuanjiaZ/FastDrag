@@ -110,7 +110,7 @@ def get_scale_factor(C, A, OA, d_OA, R, O):
     # print(f"O:{O}   \nA:{A} \nC:{C}  \nAC:{AC} \nd_AC:{d_AC} \ne_AC:{e_AC}  \nOA:{OA} \ntorch.dot(AC, OA):{torch.dot(AC, OA)}")
     L0 = torch.dot(AC, OA) / d_AC             #  |G1 A|    θ>90，L0<0
     L1 = torch.sqrt(R**2 - d_OA**2 + L0**2)   #  |G1 P|
-    AP = (L1-L0)*e_AC  # GP-GA GP = L*t_AC GA = L0*t_AC
+    AP = (L1-L0)*e_AC  # $L1-L0=|G_1P|-|G_0A| =|G_1P| |G_1A| = |AP|$
     PC = AC-AP
     # print(f"L0:{L0} \nL1:{L1}  \nAP:{AP} \nPC:{PC}")
     scale_factor = torch.norm(PC)/torch.norm(AP)  # |PC|/|AP| == |CD|/|AB|
