@@ -74,14 +74,13 @@ Code related to the FastDrag algorithm is under Apache 2.0 license.
 ## BibTeX
 If you find our repo helpful, please consider leaving a star or cite our paper :)
 ```bibtex
-@misc{zhao2024fastdrag,
-        title={FastDrag: Manipulate Anything in One Step}, 
+@inproceedings{
+        zhao2024fastdrag,
+        title={FastDrag: Manipulate Anything in One Step},
         author={Xuanjia Zhao and Jian Guan and Congyi Fan and Dongli Xu and Youtian Lin and Haiwei Pan and Pengming Feng},
-        year={2024},
-        eprint={2405.15769},
-        archivePrefix={arXiv},
-        primaryClass={cs.CV}
-        }
+        booktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems},
+        year={2024}
+}
 ```
 
 
